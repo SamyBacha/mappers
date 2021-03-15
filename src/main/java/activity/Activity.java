@@ -17,4 +17,9 @@ public class Activity {
   public String getType() {
     return type;
   }
+
+  @Override
+  public String toString() {
+    return "Activity{" + "nom='" + nom + '\'' + ", type='" + type + '\'' + '}';
+  }
 }

@@ -7,15 +7,20 @@ import java.util.function.Function;
 import vehicle.VehicleDto;
 import vehicle.VehicleMapper;
 
-//@FunctionalInterface
-public interface EmployeeMapper extends Function<EmployeeDto, Employee> {
+@FunctionalInterface
+public interface EmployeeMapperV2 extends Function<EmployeeDto, Employee> {
 
-  static EmployeeMapper toDomain() {
+  static EmployeeMapperV2 toDomain() {
     return dto -> new Employee(dto.getFirstName(), dto.getLastName(), dto.getAdminNumber());
   }
 
-  default EmployeeMapper activities() {
-    return dto -> withActivities(this.apply(dto), dto.getActivities());
+
+  static EmployeeMapperV2 vehicle() {
+    return  dto -> withVehicle(toDomain().apply(dto), dto.getVehicle());
+  }
+
+  static EmployeeMapperV2 activities() {
+    return  dto -> withActivities(toDomain().apply(dto), dto.getActivities());
   }
 
   private static Employee withActivities(Employee emp, List<ActivityDto> activityDtoList) {
@@ -23,14 +28,9 @@ public interface EmployeeMapper extends Function<EmployeeDto, Employee> {
     return emp;
   }
 
-  default EmployeeMapper vehicle() {
-    return dto -> withVehicle(this.apply(dto), dto.getVehicle());
-  }
-
   private static Employee withVehicle(Employee emp, VehicleDto vehicleDto) {
     emp.setVehicle(VehicleMapper.toDomain(vehicleDto));
     return emp;
   }
-
 
 }

@@ -45,4 +45,9 @@ public class Employee {
   public List<Activity> getActivities() {
     return activities;
   }
+
+  @Override
+  public String toString() {
+    return "Employee{" + "firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", adminNumber='" + adminNumber + '\'' + '}';
+  }
 }

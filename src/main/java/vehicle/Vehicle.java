@@ -29,4 +29,9 @@ public class Vehicle {
   public String getType() {
     return type;
   }
+
+  @Override
+  public String toString() {
+    return "Vehicle{" + "licensePlate=" + licensePlate + ", code='" + code + '\'' + ", model='" + model + '\'' + ", type='" + type + '\'' + '}';
+  }
 }

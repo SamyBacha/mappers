@@ -25,4 +25,9 @@ public class ActivityDto {
   public void setType(String type) {
     this.type = type;
   }
+
+  @Override
+  public String toString() {
+    return "Activity{" + "nom='" + nom + '\'' + ", type='" + type + '\'' + '}';
+  }
 }

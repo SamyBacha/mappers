@@ -10,14 +10,14 @@ public class EmployeeDto {
   private String lastName;
   private String adminNumber;
   private VehicleDto vehicle;
-  private List<ActivityDto> activityDtoList;
+  private List<ActivityDto> activities;
 
-  public EmployeeDto(String firstName, String lastName, String adminNumber, VehicleDto vehicle, List<ActivityDto> activityDtoList) {
+  public EmployeeDto(String firstName, String lastName, String adminNumber, VehicleDto vehicle, List<ActivityDto> activities) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.adminNumber = adminNumber;
     this.vehicle = vehicle;
-    this.activityDtoList = activityDtoList;
+    this.activities = activities;
   }
 
   public VehicleDto getVehicle() {
@@ -52,11 +52,16 @@ public class EmployeeDto {
     this.adminNumber = adminNumber;
   }
 
-  public List<ActivityDto> getActivityDtoList() {
-    return activityDtoList;
+  public List<ActivityDto> getActivities() {
+    return activities;
   }
 
-  public void setActivityDtoList(List<ActivityDto> activityDtoList) {
-    this.activityDtoList = activityDtoList;
+  public void setActivities(List<ActivityDto> activities) {
+    this.activities = activities;
+  }
+
+  @Override
+  public String toString() {
+    return "Employee{" + "firstName='" + firstName + '\'' + ", lastName='" + lastName + '\'' + ", adminNumber='" + adminNumber + '\'' + '}';
   }
 }
